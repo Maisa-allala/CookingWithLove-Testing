@@ -1,0 +1,333 @@
+
+  @media only screen and (min-width: 375px) {
+    /* .header a:not(:first-child)
+     {
+        display: none;
+     } */
+     .header-right{
+        float: right;
+        margin-top: 1%;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;     
+        display: flex;
+        flex-direction: row;
+        
+     }
+     .header img{
+        margin-left: 12%;
+        
+        }
+}
+
+@media only screen and (max-width: 479px)  {
+    /* .header a:not(:first-child)
+     {
+        display: none;
+     } */
+     .header-right{
+        float: right;
+        margin-top: 1%;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;     
+        display: flex;
+        flex-direction: row;
+        /* width: 100%; */
+        
+     }
+     .header-right a{
+        width: 100%;
+     }
+     .header img{
+        /* margin-left: 10%; */
+        margin: auto;
+        }
+}
+
+
+/* Registration and Login form  */
+
+@media screen and (max-width: 479px) {
+   .col-25, .col-75,select,textarea {
+     width: 100%;
+   }
+
+   input[type=submit] {
+      width: 35%;
+      margin-top: 2;
+    }
+
+    input[type=submit].Save_Pass{
+      width: 80%;
+      margin: auto;
+      margin-top: 3%;
+    }
+
+    input[type=file]{
+      width: 80%;
+      margin: auto;
+      margin-top: 3%;
+    }
+
+    input[type=submit].Create_acc{
+      width: 80%;
+      margin: auto;
+      margin-top: 3%;
+      margin-bottom: 2%;
+    }
+
+    input[type=submit].Update_Acc{
+      width: 80%;
+      margin: auto;
+      margin-top: 3%;
+      margin-bottom: 2%;
+    }
+
+    input[type=text] {
+      width: 100%;
+    } 
+
+    input[type=number]{
+      width: 100%;
+    
+    }
+    input[type=password] {
+      width: 100%; 
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .menulist button{
+      width:fit-content;
+    }
+ }
+
+ 
+@media screen and (max-width: 959px) {
+   .col-25, .col-75 {
+     width: 50%;
+     margin-left:20% ;
+     
+   }
+   select,textarea{
+      margin-left: 30%;
+      width: 50%;
+   }
+
+   input[type=submit] {
+      width: 35%;
+      margin-top: 2;
+    }
+
+    input[type=submit].Save_Pass{
+      width: 50%;
+      margin: auto;
+      margin-top: 3%;
+    }
+
+    input[type=file]{
+      width: 80%;
+      margin: auto;
+      margin-top: 3%;
+    }
+
+    input[type=submit].Create_acc{
+      width: 50%;
+      margin: auto;
+      margin-top: 3%;
+      margin-bottom: 2%;
+    }
+
+    input[type=submit].Update_Acc{
+      width: 50%;
+      margin: auto;
+      margin-top: 3%;
+      margin-bottom: 2%;
+    }
+
+    input[type=text] {
+      width: 50%;
+      margin-left: 30%;
+    } 
+
+    input[type=number]{
+      width: 50%;
+      margin-left: 30%;
+      margin-left: 30%;
+    
+    }
+    input[type=password] {
+      width: 50%; 
+      margin-left: 30%;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .menulist button{
+      width:fit-content;
+    }
+ }
+
+
+ /* all buttons */
+
+ @media screen and (max-width: 479px) {
+
+   .update{
+      margin-top: 5%;
+      width:70%;
+      margin-left: 10%;
+      
+    }
+    .check_order{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+    .pre_order{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .buyer_cur_order{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .seller_cur_dish{
+      margin-top: 3%;
+       width: 70%;
+       margin-left: 10%;
+    }
+
+    .seller_cancel_order{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .search{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .add_dish{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .seller_com_order{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .active_order{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .ready_pickUp{
+      margin-top: 3%;
+      width: 70%;
+      margin-left: 10%;
+    }
+   
+    /* Admin butons */
+
+    .active_user{
+      margin-top: 5%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .active_user_req{
+      margin-top: 4%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .publish_dish{
+      margin-top: 4%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+    .unpublish_dish{
+      margin-top: 4%;
+      width: 70%;
+      margin-left: 10%;
+    }
+
+ }
+
+ /* responsive card */
+
+ @media screen and (max-width: 479px){
+ .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* justify-content: center; */
+ }
+
+ .card{
+  width: 20%;
+  display: flex;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* box-shadow: 2px 2px 20px black;
+  border-radius: 5px; 
+  margin: 2%;
+  padding-bottom: 2%; */
+ }
+
+ .image img{
+  width: 100%;
+  height: auto;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  
+  }
+  .dish_Name{
+    text-align: center;
+    /* font-size: 1rem;
+    color:#444; */
+    
+   }
+   .item_price{
+      font-size: 1rem;
+      color:#444;
+      font-weight: bolder;
+   }
+  
+  h1{
+    font-size: 20px;
+   }
+  
+  .Add_item_cart{
+    padding: 3px;
+    text-align: center; 
+    padding-top: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+
+}
+

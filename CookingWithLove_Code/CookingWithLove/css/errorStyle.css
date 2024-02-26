@@ -1,0 +1,35 @@
+/* Style for inline error messages near input fields */
+.error-message {
+    color: #ff0000; /* Red color for error text */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Style for error summary at the top of the form */
+.error-summary {
+    background-color: #ffe6e6; /* Light red background color for error summary */
+    border: 1px solid #ff0000; /* Red border for error summary */
+    color: #ff0000; /* Red color for error text */
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Style for toast or notification messages */
+.error-toast {
+    background-color: #ff4d4d; /* Darker red background color for toast */
+    color: #ffffff; /* White text color for toast */
+    padding: 10px;
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+    margin: 10px;
+    z-index: 9999;
+}
+
+/* Style for styled text messages within the content */
+.styled-text-error {
+    color: #ff0000; /* Red color for styled error text */
+    font-weight: bold;
+}
+
+

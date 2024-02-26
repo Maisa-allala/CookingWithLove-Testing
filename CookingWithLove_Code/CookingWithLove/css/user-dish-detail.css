@@ -1,0 +1,44 @@
+.user_detailForm{
+  font-family: Arial, Helvetica, sans-serif;
+  width: 800px;
+  height: 500px;
+  margin:auto;
+  margin-top: 3%;
+  border-radius: 10px;
+  background-position: center;
+  display: table;
+  padding-top: 2%;
+  
+}
+
+.col-5{
+  float: left;
+  width: 25%;
+  padding-left: 25%;
+  text-align:justify;
+}
+.col-10{
+  float: left;
+  width: 75%;
+}
+
+.row-heading{
+  color:red;
+  font-weight: bolder;
+}
+ 
+ 
+  .account_info{
+    font-size: medium;
+    color: blue;
+    font-weight: bold;
+  }
+
+  .ID_info{
+    font-size: large;
+    color: black;
+    font-weight: bold;
+  }
+
+
+

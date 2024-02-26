@@ -1,0 +1,123 @@
+.cancel_order{
+  margin-right: 19%;
+  margin-top: 5%;
+  margin-left: 6%;
+  font-weight: bold;
+}
+
+.update{
+    margin-top: 3%;
+    margin-left: 10%;
+    font-weight: bold;
+  }
+  
+.buyer_cur_order{
+    margin-left: 21%;
+    margin-top: 5%;
+  }
+  .check_order{
+    margin-left: 21%;
+    margin-top: 5%;
+  }
+  .add_dish{
+    margin-left: 21%;
+    margin-top: 3%;
+  }
+  .pre_order{
+  
+    /* margin-right: 15%; */
+    margin-top: 5%;
+    margin-left: 10%;
+  }
+  .cur_dish{
+    margin-left: 20%;
+    margin-top: 4%;
+  }
+ 
+  .cur_order{
+    margin-left: 12%;
+    margin-top: 4%;
+  }
+  
+
+.search{
+ 
+  margin-left: 21%;
+  margin-top: 5%;
+}
+.seller_cur_dish{
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.active_order{
+  margin-top: 5%;
+  margin-left: 10%; 
+}
+
+.seller_cancel_order{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 3%;
+}
+
+.seller_com_order{
+    margin-left: 21%;
+    margin-top: 5%;
+}
+
+.ready_pickUp{
+    margin-left: 21%;
+    margin-top: 5%;
+}
+
+/* admin main page buttons */
+
+.active_user{
+  margin-top: 2%;
+ margin-bottom: 1%;
+ margin-left: 35%;
+}
+
+.active_user_req{
+  margin-left: 35%;
+  margin-top: 2%;
+}
+
+.publish_dish{
+  margin-left: 35%;
+  margin-top: 2%;
+}
+
+.unpublish_dish{
+  margin-left: 35%;
+  margin-top: 2%;
+  /* margin-top: 5%; */
+}
+
+.cart_button{
+  margin-left:35%; 
+  /* float: right; */
+  /* padding: 0 15px; */
+  margin-top: 4%;
+  font-weight: bold;
+
+}
+
+
+input[type=submit].updateCart {
+  width: 24%;
+  background-color: #ce170a;
+  color: white;
+  padding: 10px 22px;
+  margin: 10px 40%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size:large;
+  font-style: oblique;
+  text-align: center;
+  font-weight: bold;
+  /* float: right; */
+  
+}

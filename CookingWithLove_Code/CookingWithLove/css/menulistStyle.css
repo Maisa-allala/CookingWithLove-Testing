@@ -1,0 +1,44 @@
+.menulist{
+    margin-top: 1%;
+    text-align: center;
+    background-color: #ce170a;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:large;
+    color: white;
+    padding: 10px 6px;
+    /* padding: 6px; */
+    margin-bottom: 2%;
+    /* margin-right: 2%; */
+    /* border-radius: 7px;  */
+    width: 100%;
+  }
+  
+  
+  
+  .nav-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  .menuList a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px; /* Adjust the spacing between tabs as needed */
+  }
+
+  /* .menulist button{
+    width:110%
+  }
+   */
+  .menulist button:hover{
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .menuList .active {
+    font-weight: bold; /* or any other styles for the active tab */
+    color: #ce170a;;
+    font-size: large;
+    background-color: #ddd;
+  }
