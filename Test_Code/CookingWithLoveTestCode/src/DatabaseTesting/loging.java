@@ -16,7 +16,7 @@ public class loging {
 	public static void main(String[] args) throws SQLException, InterruptedException {
 		String host = "localhost";
 		String port = "3306";
-		Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "Maisa82**" );
+		Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "" );
 		Statement s=con.createStatement();
 		ResultSet rs =s.executeQuery("SELECT * FROM user_account where firstName = 'Tahleen'");
 		while(rs.next()) {
