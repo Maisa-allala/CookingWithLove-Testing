@@ -1,0 +1,51 @@
+package test;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class logintest {
+	 private WebDriver driver;
+
+	    @BeforeClass
+	    public void setUp() {
+	        // Initialize WebDriver
+	        driver = new ChromeDriver();
+	        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	        driver.get("http://localhost:8080/cookingwithlove/login.php");
+
+	        // Login as admin
+	        driver.findElement(By.id("username")).sendKeys("admin");
+	        driver.findElement(By.id("password")).sendKeys("Test**12345");
+	        driver.findElement(By.cssSelector("input[value='Login']")).click();
+	    }
+
+	    @Test
+	    public void testAdminApproveDish() throws InterruptedException {
+	        // Click on unpublish dish button
+	        driver.findElement(By.className("unpublish_dish")).click();
+	        Thread.sleep(2000);
+
+	        // Click on the dish to approve
+	        driver.findElement(By.linkText("71")).click();
+	        Thread.sleep(2000);
+
+	        // Click on the approve for publishing button
+	        driver.findElement(By.xpath("//input[@name=\"ApproveforPublishing\"]")).click();
+
+	        // Assert alert message
+	        Assert.assertEquals(driver.switchTo().alert().getText(), "Dish has been published successfully.");
+	        driver.switchTo().alert().accept();
+	    }
+
+	    @AfterClass
+	    public void tearDown() {
+	        // Close the WebDriver
+	        driver.quit();
+	    }
+}

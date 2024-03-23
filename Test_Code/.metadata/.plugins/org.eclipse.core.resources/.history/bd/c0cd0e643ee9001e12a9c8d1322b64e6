@@ -1,0 +1,70 @@
+package UITesting;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class WebSiteTests {
+
+	private WebDriver driver;
+
+	@BeforeClass
+	public void setUp() {
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+	}
+
+	@AfterClass
+	public void tearDown() {
+		if (driver != null) {
+			driver.quit();
+		}
+	}
+	
+	 @Test
+	    public void userRegistrationTest() throws InterruptedException {
+	        driver.get("http://localhost:8080/CookingWithLove/");
+	        driver.findElement(By.linkText("Log in")).click();
+	        driver.findElement(By.linkText("Create Account")).click();
+	        driver.findElement(By.id("first_name")).sendKeys("Ali");
+	        driver.findElement(By.id("last_name")).sendKeys("Baker");
+	        driver.findElement(By.id("dob")).sendKeys("1975-06-15");
+	        driver.findElement(By.id("address")).sendKeys("123 Alexis Rd");
+	        driver.findElement(By.id("zip")).sendKeys("47896");
+	        driver.findElement(By.id("phone")).sendKeys("419-789-9658");
+	        driver.findElement(By.id("email")).sendKeys("ali.baker@gmail.com");
+	        driver.findElement(By.cssSelector("option[value='Buyer']")).click();
+	        driver.findElement(By.id("username")).sendKeys("alibaker");
+	        driver.findElement(By.id("password")).sendKeys("Test**1234");
+	        driver.findElement(By.id("confirm_password")).sendKeys("Test**1234");
+	        Thread.sleep(2000);
+	        driver.findElement(By.cssSelector("input[value='Create Account']")).click();
+	        Assert.assertEquals(driver.switchTo().alert().getText(), 
+	              "Congratulations! Your account has been created successfully.");
+	        driver.switchTo().alert().accept();
+	    }
+
+
+		@Test
+		public void userLoginTest() throws InterruptedException {
+			driver.get("http://localhost:8080/cookingwithlove/login.php");
+			driver.findElement(By.id("username")).sendKeys("buyer2");
+			driver.findElement(By.id("password")).sendKeys("Test**12345");
+			Thread.sleep(2000);
+			driver.findElement(By.cssSelector("input[value='Login']")).click();
+			Thread.sleep(2000);
+
+			Assert.assertEquals(driver.findElement(By.cssSelector("div[class='welcome_user']:nth-child(1)")).getText(),
+					"Welcome :buyer2\nAccount ID: 5");
+		}
+		
+	
+
+}

@@ -1,0 +1,26 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class UserLoginTest {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.findElement(By.id("username")).sendKeys("alibaker");
+		driver.findElement(By.id("password")).sendKeys("Test**1234");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.cssSelector("input[value='Login']")).click();
+	
+		
+		Assert.assertEquals(driver.findElement(By.className("error-toast")).getText(), "Your account is currently not active.\r\n"
+				+ "Please contact our support team for assistance in resolving this issue.\r\n"
+				+ "For now, you can browse our website as a guest.");
+	}
+
+}

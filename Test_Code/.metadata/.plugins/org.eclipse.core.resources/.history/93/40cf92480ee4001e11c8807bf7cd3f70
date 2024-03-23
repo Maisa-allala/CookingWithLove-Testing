@@ -1,0 +1,10 @@
+package DatabaseTesting;
+
+public class user_accountTableInsertDataTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
