@@ -33,7 +33,7 @@ if ($user instanceof User){
 
    if ($user->accountType === 'Admin') {
 
-   Url::redirect('/cookingwithlove/admin/adminmainpage.php');
+   Url::redirect('/cookingwithlove/admin/AdminMainPage.php');
     exit();
 } elseif ($user->accountType === 'Buyer') {
 if(isset($_SESSION['is_active']) && $_SESSION['is_active'] === 'Y'){
