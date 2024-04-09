@@ -20,8 +20,7 @@ public class UserTest {
 	public void setUp() {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-	}
+		}
 
 	@AfterClass
 	public void tearDown() {
@@ -29,6 +28,33 @@ public class UserTest {
 			driver.quit();
 		}
 	}
+	
+	//create base account for testing purposes
+	//this also tests successful registration
+	@Test
+	public void userRegistrationTest() throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.get("http://localhost:/cookingwithlove/");
+		driver.findElement(By.linkText("Log in")).click();
+		driver.findElement(By.linkText("Create Account")).click();
+		driver.findElement(By.id("first_name")).sendKeys("Test");
+		driver.findElement(By.id("last_name")).sendKeys("Testing");
+		driver.findElement(By.id("dob")).sendKeys("1901-01-01");
+		driver.findElement(By.id("address")).sendKeys("1234 Testing");
+		driver.findElement(By.id("zip")).sendKeys("12345");
+		driver.findElement(By.id("phone")).sendKeys("123-456-7890");
+		driver.findElement(By.id("email")).sendKeys("test@gmail.com");
+		driver.findElement(By.cssSelector("option[value='Buyer']")).click();
+		driver.findElement(By.id("username")).sendKeys("testacc");
+		driver.findElement(By.id("password")).sendKeys("Test1!");
+		driver.findElement(By.id("confirm_password")).sendKeys("Test1!");
+		driver.findElement(By.xpath("//input[@value='Create Account']")).click();
+		Thread.sleep(2000);
+		//confirm account creation success
+		Assert.assertEquals(driver.switchTo().alert().getText(),
+				"Congratulations! Your account has been created successfully.");
+		driver.switchTo().alert().accept();
+		}
 	
 	//test reset password function with various form entries
 	//test 1: empty password fields - Meaghan Bryant
@@ -38,7 +64,7 @@ public class UserTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost:/cookingwithlove/login.php");
 		driver.findElement(By.linkText("Forgot Password ?")).click();
-		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("megbryan");
+		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("testacc");
 		driver.findElement(By.id("new_Password")).sendKeys("");
 		driver.findElement(By.id("con_pass")).sendKeys("");
 		Thread.sleep(2000);
@@ -68,7 +94,7 @@ public class UserTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost:/cookingwithlove/login.php");
 		driver.findElement(By.linkText("Forgot Password ?")).click();
-		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("megbryan");
+		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("testacc");
 		driver.findElement(By.id("new_Password")).sendKeys("Testing");
 		driver.findElement(By.id("con_pass")).sendKeys("Testing");
 		Thread.sleep(2000);
@@ -95,7 +121,7 @@ public class UserTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost:/cookingwithlove/login.php");
 		driver.findElement(By.linkText("Forgot Password ?")).click();
-		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("megbryan");
+		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("testacc");
 		driver.findElement(By.id("new_Password")).sendKeys("Tes1!");
 		driver.findElement(By.id("con_pass")).sendKeys("Tes1!");
 		Thread.sleep(2000);
@@ -116,14 +142,14 @@ public class UserTest {
 	
 	//test reset password function with various form entries
 	//test 4: too long  - Meaghan Bryant
-	//this test actually revealed a bug - there is no upper limit of 8 characters
+	//this test failed and revealed a bug - there is no upper limit of 8 characters
 	@Test
 	public void resetPasswordTooLongTest() {
 		try {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost:/cookingwithlove/login.php");
 		driver.findElement(By.linkText("Forgot Password ?")).click();
-		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("megbryan");
+		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("testacc");
 		driver.findElement(By.id("new_Password")).sendKeys("Testingthislongpassword1!");
 		driver.findElement(By.id("con_pass")).sendKeys("Testingthislongpassword1!");
 		Thread.sleep(2000);
@@ -150,7 +176,7 @@ public class UserTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost:/cookingwithlove/login.php");
 		driver.findElement(By.linkText("Forgot Password ?")).click();
-		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("megbryan");
+		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("testacc");
 		driver.findElement(By.id("new_Password")).sendKeys("test1!");
 		driver.findElement(By.id("con_pass")).sendKeys("test1!");
 		Thread.sleep(2000);
@@ -177,7 +203,7 @@ public class UserTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost:/cookingwithlove/login.php");
 		driver.findElement(By.linkText("Forgot Password ?")).click();
-		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("megbryan");
+		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("testacc");
 		driver.findElement(By.id("new_Password")).sendKeys("TEST1!");
 		driver.findElement(By.id("con_pass")).sendKeys("TEST1!");
 		Thread.sleep(2000);
@@ -204,7 +230,7 @@ public class UserTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost:/cookingwithlove/login.php");
 		driver.findElement(By.linkText("Forgot Password ?")).click();
-		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("megbryan");
+		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("testacc");
 		driver.findElement(By.id("new_Password")).sendKeys("Testing1!");
 		driver.findElement(By.id("con_pass")).sendKeys("Test1!");
 		Thread.sleep(2000);
@@ -1077,7 +1103,7 @@ public class UserTest {
 		try {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost/cookingwithlove/login.php");
-		driver.findElement(By.id("username")).sendKeys("megbryan");
+		driver.findElement(By.id("username")).sendKeys("testacc");
 		driver.findElement(By.id("password")).sendKeys("");
 		driver.findElement(By.cssSelector("input[value='Login']")).click();
 		Thread.sleep(2000);
@@ -1101,7 +1127,7 @@ public class UserTest {
 		try {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("http://localhost/cookingwithlove/login.php");
-		driver.findElement(By.id("username")).sendKeys("megbryan");
+		driver.findElement(By.id("username")).sendKeys("testacc");
 		driver.findElement(By.id("password")).sendKeys("Cis565&");
 		driver.findElement(By.cssSelector("input[value='Login']")).click();
 		Thread.sleep(2000);
@@ -1117,6 +1143,10 @@ public class UserTest {
 			e.printStackTrace();
 		}
 	}
+	
 }
+	
+
+
 	
 
