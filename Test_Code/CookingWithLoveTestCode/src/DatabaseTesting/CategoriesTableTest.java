@@ -13,7 +13,7 @@ public class CategoriesTableTest {
 	    public void testInsertion() throws SQLException {
 	        String host = "localhost";
 	        String port = "3306";
-	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "samar216898");
+	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
 	        Statement s = con.createStatement();
 
             // Execute the INSERT statement
@@ -29,8 +29,8 @@ public class CategoriesTableTest {
 	    public void testUpdateOperation() throws SQLException {
 	        String host = "localhost";
 	        String port = "3306";
-	        String descriptionToUpdate = "Bites"; // The username of the record to be updated
-	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "samar216898");
+	        String descriptionToUpdate = "Bites"; 
+	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
 	        Statement s = con.createStatement();
 
 	        int rowsAffected = s.executeUpdate("UPDATE categories SET description = 'Fruits' WHERE description = '" + descriptionToUpdate + "'");
@@ -44,8 +44,8 @@ public class CategoriesTableTest {
 	    public void testRetrieveOperation() throws SQLException {
 	        String host = "localhost";
 	        String port = "3306";
-	        String descriptionToRetrieve = "Fruits"; // The username of the record to be retrieved
-	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "samar216898");
+	        String descriptionToRetrieve = "Fruits"; 
+	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
 	        Statement s = con.createStatement();
 
 	        // Execute the SELECT statement
@@ -63,8 +63,8 @@ public class CategoriesTableTest {
 	    public void testDeleteOperation() throws SQLException {
 	        String host = "localhost";
 	        String port = "3306";
-	        String descriptionToDelete = "Fruits"; // The username of the record to be deleted
-	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "samar216898");
+	        String descriptionToDelete = "Fruits";
+	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
 	        Statement s = con.createStatement();
 
             // Execute the DELETE statement
