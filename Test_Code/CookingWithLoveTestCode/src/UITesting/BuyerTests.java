@@ -25,50 +25,61 @@ public class BuyerTests {
 	public void setUp() throws SQLException, InterruptedException {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		addTestBuyer();
+		// add data to database
+		addBuyerTestData();
 	}
 
 	@AfterClass
-	public void tearDown() {
+	public void tearDown() throws SQLException {
+		//clear database
+		clearBuyerTestData();
 		if (driver != null) {
 			driver.quit();
 		}
 	}
 	
-	public void addTestBuyer() throws SQLException, InterruptedException {
-		// check if user by name of CoachEpp exists, if not create user, if so ensure accountid = 7
+	public void addBuyerTestData() throws SQLException, InterruptedException {
+		// check if user by name of CoachEpp exists, if not create user
 		String host = "localhost";
         String port = "3306";
         Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
         Statement s = con.createStatement();
         
-        ResultSet usersFromTable = s.executeQuery("SELECT * FROM user_account WHERE userName='CoachEpp'");
-        int size = 0;
-        while (usersFromTable.next()) {
-        	size++;
-        }
+        // Insert test buyer into user_account table
+        // Execute the INSERT statement
+        s.executeUpdate("INSERT INTO user_account (accountID, userName, firstName, lastName, DOB, password, accountType, email, phone, street, zip, is_active, accountRequestedDate, accountActiveDate) " +
+                   "VALUES ('7', 'CoachEpp', 'Malik', 'Epperson', '1984-10-03', '$2y$10$gUCpdSMYNEBX.i1J8dFVsuH6Kj1tHRduMZOmPdYjSskzFJAXK9NQe', 'Buyer', 'malikepp@umich.edu', '412-555-1212', '215 Mckenzie Dr', '15235', 'Y', '2024-03-17', '2024-03-19')");
+                
+        // Insert test data into dishes table
+        // Execute the INSERT statement
+        s.executeUpdate("INSERT INTO dishes (dishID, dishName, description, price, status, dishType, accountId, publishDate, photoPath, is_published, DishRequestedDate) " +
+                   "VALUES ('64', 'Greek Salad', '2 Tomatoes', '4.00', 'available', 'Salad', '3', '2023-12-04', 'Uploads/GreekSalad.jpeg', 'Y', '2023-12-01')");
         
-        // If there is no rows in the table then there is not an account for CoachEpp so create an account
-        if (size == 0) {
-        	// register user with username CoachEpp
-        	driver.get("http://localhost/CookingWithLove/");
-    		driver.findElement(By.linkText("Log in")).click();
-    		driver.findElement(By.linkText("Create Account")).click();
-    		driver.findElement(By.id("first_name")).sendKeys("Malik");
-    		driver.findElement(By.id("last_name")).sendKeys("Epperson");
-    		driver.findElement(By.id("dob")).sendKeys("1984-10-03");
-    		driver.findElement(By.id("address")).sendKeys("215 Mckenzie Dr");
-    		driver.findElement(By.id("zip")).sendKeys("47896");
-    		driver.findElement(By.id("phone")).sendKeys("419-789-9658");
-    		driver.findElement(By.id("email")).sendKeys("malikepperson@gmail.com");
-    		driver.findElement(By.cssSelector("option[value='Buyer']")).click();
-    		driver.findElement(By.id("username")).sendKeys("CoachEpp");
-    		driver.findElement(By.id("password")).sendKeys("P@$$w0rd");
-    		driver.findElement(By.id("confirm_password")).sendKeys("P@$$w0rd");
-    		Thread.sleep(2000);
-    		driver.findElement(By.cssSelector("input[value='Create Account']")).click();
-        }
+        // Insert test data into orders table
+        // Execute the INSERT statement
+        s.executeUpdate("INSERT INTO orders (orderNum, date, deliveryType, totalPrice, cancelled, accountId, delivery_complete, order_complete) " +
+                   "VALUES ('102', '2024-01-06', 'PickUp', '24.00', 'N', '7', 'Y', 'N')");
+        s.executeUpdate("INSERT INTO orders (orderNum, date, deliveryType, totalPrice, cancelled, accountId, delivery_complete, order_complete) " +
+                "VALUES ('104', '2024-03-06', 'PickUp', '24.00', 'Y', '7', 'N', 'N')");
         
+	}
+	
+	public void clearBuyerTestData() throws SQLException {
+		// Remove all buyer test data from tables
+		String host = "localhost";
+        String port = "3306";
+        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
+        Statement s = con.createStatement();
+        
+        // clear user_account table
+        s.executeUpdate("Delete FROM user_account");
+        
+        // clear user_account table
+        s.executeUpdate("Delete FROM dishes");
+        
+        // clear user_account table
+        s.executeUpdate("Delete FROM orders");
+		
 	}
 	
 	@Test
