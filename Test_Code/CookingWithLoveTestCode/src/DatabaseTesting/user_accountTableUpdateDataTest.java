@@ -14,7 +14,7 @@ public class user_accountTableUpdateDataTest {
         String host = "localhost";
         String port = "3306";
         String userNameToUpdate = "Ahmad"; // The username of the record to be updated
-       Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
+       Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "Maisa82**");
              Statement s = con.createStatement();
 
             // Execute the UPDATE statement

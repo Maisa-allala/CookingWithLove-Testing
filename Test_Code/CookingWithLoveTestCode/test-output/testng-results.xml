@@ -1,61 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="14" passed="14" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-23T15:20:02 EDT" name="Default suite" finished-at="2024-03-23T15:21:30 EDT" duration-ms="88317">
+  <suite started-at="2024-04-13T11:08:51 EDT" name="Default suite" finished-at="2024-04-13T11:10:51 EDT" duration-ms="120609">
     <groups>
     </groups>
-    <test started-at="2024-03-23T15:20:02 EDT" name="Default test" finished-at="2024-03-23T15:21:30 EDT" duration-ms="88317">
-      <class name="UITesting.WebSiteTests">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:20:02 EDT" name="setUp" finished-at="2024-03-23T15:20:03 EDT" duration-ms="1429" status="PASS">
+    <test started-at="2024-04-13T11:08:51 EDT" name="Default test" finished-at="2024-04-13T11:10:51 EDT" duration-ms="120609">
+      <class name="UITesting.AdminTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:08:51 EDT" name="setUp" finished-at="2024-04-13T11:08:53 EDT" duration-ms="2447" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="adminViewActiveUsersTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:20:03 EDT" name="adminViewActiveUsersTest" finished-at="2024-03-23T15:20:13 EDT" duration-ms="9560" status="PASS">
+        <test-method is-config="true" signature="setUpAdminDatabase()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:08:53 EDT" name="setUpAdminDatabase" finished-at="2024-04-13T11:08:53 EDT" duration-ms="312" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpAdminDatabase -->
+        <test-method signature="adminApproveDishTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:08:53 EDT" name="adminApproveDishTest" finished-at="2024-04-13T11:09:07 EDT" duration-ms="13894" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminApproveDishTest -->
+        <test-method signature="adminApproveUserTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:09:07 EDT" name="adminApproveUserTest" finished-at="2024-04-13T11:09:22 EDT" duration-ms="14732" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminApproveUserTest -->
+        <test-method signature="adminViewActiveUsersTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:09:22 EDT" name="adminViewActiveUsersTest" finished-at="2024-04-13T11:09:31 EDT" duration-ms="8643" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- adminViewActiveUsersTest -->
-        <test-method signature="adminViewApprovedDishesTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:20:13 EDT" name="adminViewApprovedDishesTest" finished-at="2024-03-23T15:20:22 EDT" duration-ms="8537" status="PASS">
+        <test-method signature="adminViewApprovedDishesTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:09:31 EDT" name="adminViewApprovedDishesTest" finished-at="2024-04-13T11:09:39 EDT" duration-ms="8642" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- adminViewApprovedDishesTest -->
-        <test-method signature="adminViewDataforActiveUserTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:20:22 EDT" name="adminViewDataforActiveUserTest" finished-at="2024-03-23T15:20:32 EDT" duration-ms="10726" status="PASS">
+        <test-method signature="adminViewDataforActiveUserTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:09:39 EDT" name="adminViewDataforActiveUserTest" finished-at="2024-04-13T11:09:50 EDT" duration-ms="10597" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- adminViewDataforActiveUserTest -->
-        <test-method signature="adminViewDataforApprovedDishesTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:20:32 EDT" name="adminViewDataforApprovedDishesTest" finished-at="2024-03-23T15:20:43 EDT" duration-ms="10613" status="PASS">
+        <test-method signature="adminViewDataforApprovedDishesTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:09:50 EDT" name="adminViewDataforApprovedDishesTest" finished-at="2024-04-13T11:10:01 EDT" duration-ms="10732" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- adminViewDataforApprovedDishesTest -->
-        <test-method signature="adminViewDataforInactiveUserTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:20:43 EDT" name="adminViewDataforInactiveUserTest" finished-at="2024-03-23T15:20:54 EDT" duration-ms="10670" status="PASS">
+        <test-method signature="adminViewDataforInactiveUserTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:01 EDT" name="adminViewDataforInactiveUserTest" finished-at="2024-04-13T11:10:11 EDT" duration-ms="10662" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- adminViewDataforInactiveUserTest -->
-        <test-method signature="adminViewDataforUnApprovedDishesTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:20:54 EDT" name="adminViewDataforUnApprovedDishesTest" finished-at="2024-03-23T15:21:04 EDT" duration-ms="10611" status="PASS">
+        <test-method signature="adminViewDataforUnApprovedDishesTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:11 EDT" name="adminViewDataforUnApprovedDishesTest" finished-at="2024-04-13T11:10:22 EDT" duration-ms="10595" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- adminViewDataforUnApprovedDishesTest -->
-        <test-method signature="adminViewInactiveUsersTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:21:04 EDT" name="adminViewInactiveUsersTest" finished-at="2024-03-23T15:21:13 EDT" duration-ms="8531" status="PASS">
+        <test-method signature="adminViewInactiveUsersTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:22 EDT" name="adminViewInactiveUsersTest" finished-at="2024-04-13T11:10:30 EDT" duration-ms="8518" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- adminViewInactiveUsersTest -->
-        <test-method signature="adminViewUnApprovedDishesTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:21:13 EDT" name="adminViewUnApprovedDishesTest" finished-at="2024-03-23T15:21:21 EDT" duration-ms="8506" status="PASS">
+        <test-method signature="adminViewUnApprovedDishesTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:30 EDT" name="adminViewUnApprovedDishesTest" finished-at="2024-04-13T11:10:39 EDT" duration-ms="8510" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- adminViewUnApprovedDishesTest -->
-        <test-method signature="forgotPasswordTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:21:21 EDT" name="forgotPasswordTest" finished-at="2024-03-23T15:21:26 EDT" duration-ms="4455" status="PASS">
+        <test-method signature="forgotPasswordTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:39 EDT" name="forgotPasswordTest" finished-at="2024-04-13T11:10:43 EDT" duration-ms="4486" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- forgotPasswordTest -->
-        <test-method signature="userLoginTest()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:21:26 EDT" name="userLoginTest" finished-at="2024-03-23T15:21:30 EDT" duration-ms="4479" status="PASS">
+        <test-method signature="userLoginTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:43 EDT" name="userLoginTest" finished-at="2024-04-13T11:10:48 EDT" duration-ms="4451" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- userLoginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:UITesting.WebSiteTests@536dbea0]" started-at="2024-03-23T15:21:30 EDT" name="tearDown" finished-at="2024-03-23T15:21:30 EDT" duration-ms="148" status="PASS">
+        <test-method signature="userRegistrationTest()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:48 EDT" name="userRegistrationTest" finished-at="2024-04-13T11:10:51 EDT" duration-ms="3070" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userRegistrationTest -->
+        <test-method signature="uster()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:51 EDT" name="uster" finished-at="2024-04-13T11:10:51 EDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- uster -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:51 EDT" name="tearDown" finished-at="2024-04-13T11:10:51 EDT" duration-ms="205" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- UITesting.WebSiteTests -->
+        <test-method is-config="true" signature="tearDownAdminDatabase()[pri:0, instance:UITesting.AdminTests@b86de0d]" started-at="2024-04-13T11:10:51 EDT" name="tearDownAdminDatabase" finished-at="2024-04-13T11:10:51 EDT" duration-ms="50" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownAdminDatabase -->
+      </class> <!-- UITesting.AdminTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

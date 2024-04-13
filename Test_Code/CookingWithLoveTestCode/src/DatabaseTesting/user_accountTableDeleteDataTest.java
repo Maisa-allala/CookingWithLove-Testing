@@ -14,7 +14,7 @@ public class user_accountTableDeleteDataTest {
         String host = "localhost";
         String port = "3306";
         String userNameToDelete = "Ahmad"; // The username of the record to be deleted
-       Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
+       Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "Maisa82**");
              Statement s = con.createStatement();
 
             // Execute the DELETE statement

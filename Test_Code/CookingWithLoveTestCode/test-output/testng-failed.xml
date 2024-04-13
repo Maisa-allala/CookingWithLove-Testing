@@ -5,9 +5,18 @@
     <classes>
       <class name="UITesting.WebSiteTests">
         <methods>
+          <include name="adminViewInactiveUsersTest"/>
+          <include name="setUpAdminDatabase"/>
+          <include name="adminViewDataforApprovedDishesTest"/>
+          <include name="adminViewDataforUnApprovedDishesTest"/>
+          <include name="forgotPasswordTest"/>
+          <include name="adminViewUnApprovedDishesTest"/>
+          <include name="userRegistrationTest"/>
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="userLoginTest"/>
+          <include name="tearDownAdminDatabase"/>
+          <include name="adminViewDataforInactiveUserTest"/>
         </methods>
       </class> <!-- UITesting.WebSiteTests -->
     </classes>

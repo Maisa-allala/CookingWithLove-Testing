@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="buyer2"/>
+		<item key="selection" value="Strawberry Dream Cake"/>
 		<list key="findhistory">
+			<item value="Strawberry Dream Cake"/>
 			<item value="buyer2"/>
 			<item value="import java.time.Duration;"/>
 		</list>

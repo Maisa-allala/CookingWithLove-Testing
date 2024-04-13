@@ -15,7 +15,7 @@ public class user_accountTableInsertDataTest {
     public void testInsertion() throws SQLException {
         String host = "localhost";
         String port = "3306";
-      Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
+      Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "Maisa82**");
              Statement s = con.createStatement();
 
             // Execute the INSERT statement
