@@ -93,11 +93,11 @@ public class SellerDatabaseSetup {
 				int rowsAffected10 = s.executeUpdate("DELETE FROM orders WHERE orderNum = '" + 9 + "'");
 				int rowsAffected11 = s.executeUpdate("DELETE FROM orderitems WHERE orderNum = '" + 9 + "' AND dishID = '" + 655 + "'" );
 
+				int rowsAffected12 = s.executeUpdate("DELETE FROM orders WHERE orderNum = '" + 10 + "'");
+				int rowsAffected13 = s.executeUpdate("DELETE FROM orderitems WHERE orderNum = '" + 10 + "' AND dishID = '" + 666 + "'" );
 
 				int rowsAffected1 = s.executeUpdate("DELETE FROM user_account WHERE accountID = '" + 200 + "'");
-
 				int rowsAffected3 = s.executeUpdate("DELETE FROM user_account WHERE accountID = '" + 3 + "'");
-
 				int rowsAffected4 = s.executeUpdate("DELETE FROM user_account WHERE accountID = '" + 4 + "'");
 
 				
@@ -108,7 +108,7 @@ public class SellerDatabaseSetup {
 				// Check if delete was successful for both records
 				if (rowsAffected1 != 1 || rowsAffected3 != 1 || rowsAffected4 != 1
 						|| rowsAffected6 != 1 || rowsAffected7 != 1 || rowsAffected8 != 1
-						|| rowsAffected10 != 1 || rowsAffected11 != 1 
+						|| rowsAffected10 != 1 || rowsAffected11 != 1 || rowsAffected12 != 1 || rowsAffected13 != 1
 						) {
 					throw new SQLException("Failed to delete one or more records.");
 				}
