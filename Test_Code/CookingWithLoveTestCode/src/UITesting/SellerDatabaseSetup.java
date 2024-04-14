@@ -37,15 +37,15 @@ public class SellerDatabaseSetup {
 				// Insert multiple records into the dishes table
 				int rowsAffected17 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (655, 'Banana Bread', 'Banana Bread', '4.00', 'available', 'desserts', 3, '2023-12-04', 'resources/banana-bread.jpg', 'Y', '2023-12-01')");
+								+ "VALUES (655, 'Banana Bread', 'Banana Bread', '4.00', 'available', 'desserts', 3, '2023-12-04', 'Uploads/banana-bread.jpg', 'Y', '2023-12-01')");
 				
 				int rowsAffected18 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (666, 'Chocolate Cupcake', 'Chocolate Cupcake', '4.00', 'available', 'desserts', 3, '2023-12-04', 'resources/chocolate-cupcake.jpg', 'Y', '2023-12-01')");
+								+ "VALUES (666, 'Chocolate Cupcake', 'Chocolate Cupcake', '4.00', 'available', 'desserts', 3, '2023-12-04', 'Uploads/chocolate-cupcake.jpg', 'Y', '2023-12-01')");
 				
 				int rowsAffected19 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (677, 'Banana Chocolatechip Bread', 'Banana Chocolatechip Bread', '4.00', 'available', 'desserts', 3, '2023-12-04', 'resources/Banana-Bread_square.jpg', 'Y', '2023-12-01')");
+								+ "VALUES (677, 'Banana Chocolatechip Bread', 'Banana Chocolatechip Bread', '4.00', 'available', 'desserts', 3, '2023-12-04', 'Uploads/Banana-Bread_square.jpg', 'Y', '2023-12-01')");
 				
 				// Insert into orderitems
 				int rowsAffected22 = s.executeUpdate("INSERT INTO orderitems (orderNum, DishID, DishName, quantity, price)" +
@@ -92,7 +92,7 @@ public class SellerDatabaseSetup {
 
 				int rowsAffected10 = s.executeUpdate("DELETE FROM orders WHERE orderNum = '" + 9 + "'");
 				int rowsAffected11 = s.executeUpdate("DELETE FROM orderitems WHERE orderNum = '" + 9 + "' AND dishID = '" + 655 + "'" );
-
+				
 				int rowsAffected12 = s.executeUpdate("DELETE FROM orders WHERE orderNum = '" + 10 + "'");
 				int rowsAffected13 = s.executeUpdate("DELETE FROM orderitems WHERE orderNum = '" + 10 + "' AND dishID = '" + 666 + "'" );
 
@@ -108,7 +108,7 @@ public class SellerDatabaseSetup {
 				// Check if delete was successful for both records
 				if (rowsAffected1 != 1 || rowsAffected3 != 1 || rowsAffected4 != 1
 						|| rowsAffected6 != 1 || rowsAffected7 != 1 || rowsAffected8 != 1
-						|| rowsAffected10 != 1 || rowsAffected11 != 1 || rowsAffected12 != 1 || rowsAffected13 != 1
+						|| rowsAffected10 != 1 || rowsAffected11 != 1 || rowsAffected12 != 1 || rowsAffected13 != 1 
 						) {
 					throw new SQLException("Failed to delete one or more records.");
 				}

@@ -102,7 +102,7 @@ public class SellerTest{
 		select2.selectByVisibleText("Available");
 		WebElement fileInput = driver.findElement(By.id("Upload_pic"));
 		String projectDir = System.getProperty("user.dir");
-		String imagePath = projectDir + "\\src\\test\\resources\\TIRAMISU.jpg";
+		String imagePath = projectDir + "\\src\\Uploads\\TIRAMISU.jpg";
 		fileInput.sendKeys(imagePath);
 
 		Thread.sleep(2000);
@@ -137,7 +137,7 @@ public class SellerTest{
 	    driver.findElement(By.name("food_price")).clear();
 	    driver.findElement(By.name("food_price")).sendKeys("4");
 		String projectDir = System.getProperty("user.dir");
-		String imagePath = projectDir + "\\src\\test\\resources\\cheesecake.jpg";
+		String imagePath = projectDir + "\\src\\Uploads\\cheesecake.jpg";
 	    driver.findElement(By.id("Upload_pic")).sendKeys(imagePath);
 	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("//input[@type='submit' and @value='Update Dish']")).click();
