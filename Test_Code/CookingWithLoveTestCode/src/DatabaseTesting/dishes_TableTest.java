@@ -34,6 +34,7 @@ public class dishes_TableTest {
 		int rowsAffected = s.executeUpdate("DELETE FROM user_account WHERE userName = '" + usernameToDelete + "'");
 	}
     
+	//test inserting a dish into database - Meaghan Bryant
 	 @Test
 	 public void testAddDish() throws SQLException {
 		 String host = "localhost";
@@ -48,6 +49,7 @@ public class dishes_TableTest {
 	       
 	    }
 	
+	 //test deleting dish from database - Meaghan Bryant
 	 @Test
 	 public void testDeleteDish() throws SQLException {
 		 String host = "localhost";
