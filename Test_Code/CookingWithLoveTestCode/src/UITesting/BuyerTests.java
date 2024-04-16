@@ -78,7 +78,7 @@ public class BuyerTests {
         s.executeUpdate("Delete FROM dishes");
         
         // clear user_account table
-        s.executeUpdate("Delete FROM user_account WHERE userName ");
+        s.executeUpdate("Delete FROM user_account");
                 
 		
 	}
