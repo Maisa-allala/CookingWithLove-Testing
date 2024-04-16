@@ -15,7 +15,7 @@ public class user_accountTableRetrieveDataTest {
         String host = "localhost";
         String port = "3306";
         String userNameToRetrieve = "Ahmad"; // The username of the record to be retrieved
-       Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "Maisa82**");
+       Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
              Statement s = con.createStatement();
 
              // Execute the SELECT statement
