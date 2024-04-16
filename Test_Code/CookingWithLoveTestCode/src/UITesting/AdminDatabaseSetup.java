@@ -40,7 +40,7 @@ public class AdminDatabaseSetup {
 
 				int rowsAffected5 = s.executeUpdate(
 						"INSERT INTO user_account (accountID, userName, password, accountType, firstName, lastName, email, phone, street, zip, DOB, accountRequestedDate, accountActiveDate, is_active) "
-								+ "VALUES (6, 'seller2', '$2y$10$QsW/nP4iBattPEEfCxqJA.TXIXAxFUB/wWtYibMVWn8w6pVLuFDO2', 'Seller', 'Maisa', 'Allala', 'maisa@yahoo.com', '415-567-8569', 'Alexis Road', '45678', '2024-01-02', '2024-00-25', '2024-03-20', 'N')");
+								+ "VALUES (6, 'seller2', '$2y$10$QsW/nP4iBattPEEfCxqJA.TXIXAxFUB/wWtYibMVWn8w6pVLuFDO2', 'Seller', 'Maisa', 'Allala', 'maisa@yahoo.com', '415-567-8569', 'Alexis Road', '45678', '2024-01-02', '2024-01-25', '2024-03-20', 'N')");
 
 				// Insert multiple records into the dishes table
 				int rowsAffected6 = s.executeUpdate(
