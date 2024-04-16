@@ -2,7 +2,6 @@ package UITesting;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.Duration;
 import java.util.List;
@@ -58,7 +57,7 @@ public class BuyerTests {
         // Insert test data into orders table
         // Execute the INSERT statement
         s.executeUpdate("INSERT INTO orders (orderNum, date, deliveryType, totalPrice, cancelled, accountId, delivery_complete, order_complete) " +
-                   "VALUES ('102', '2024-01-06', 'PickUp', '24.00', 'N', '7', 'Y', 'N')");
+                   "VALUES ('102', '2024-01-06', 'PickUp', '24.00', 'N', '7', 'Y', 'Y')");
         s.executeUpdate("INSERT INTO orders (orderNum, date, deliveryType, totalPrice, cancelled, accountId, delivery_complete, order_complete) " +
                 "VALUES ('104', '2024-03-06', 'PickUp', '24.00', 'Y', '7', 'N', 'N')");
         
@@ -83,7 +82,7 @@ public class BuyerTests {
 		
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void addToCartTest() throws InterruptedException
 	{
 		// open login page locally
@@ -103,11 +102,12 @@ public class BuyerTests {
 		addToCartButtons.get(0).click();
 		
 		Assert.assertEquals(driver.switchTo().alert().getText(), "Item added to cart successfully.");
+		driver.switchTo().alert().accept();
 		Thread.sleep(4000);
 		driver.findElement(By.linkText("Log out")).click();
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void updateCartTest() throws InterruptedException
 	{
 		// open login page locally and login
@@ -125,17 +125,23 @@ public class BuyerTests {
 		List<WebElement> addToCartButtons = driver.findElements(By.className("cart_button"));
 		// select the first "Add to Cart" button which is the $4.00 Greek Salad
 		addToCartButtons.get(0).click();
+		driver.switchTo().alert().accept();
 		
 		//navigate to cart
 		driver.get("http://localhost/cookingwithlove/buyer/cart.php");
-		driver.findElement(By.className("cart_qty")).sendKeys("4");
-		Assert.assertEquals(driver.findElements(By.id("cart_footer")), "$16.00");
-		Thread.sleep(4000);
+		driver.findElement(By.xpath("//input[@name='newqty[64]']")).clear();
+		driver.findElement(By.xpath("//input[@name='newqty[64]']")).sendKeys("4");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@name='updateCart']")).click();
+		WebElement totalCartElement = driver.findElement(By.xpath("//tr[@id='cart_footer']/td[2]"));
+		String totalCartMessage = totalCartElement.getText();
+		Assert.assertEquals(totalCartMessage, "$16.00");
+		Thread.sleep(10000);
 		driver.findElement(By.linkText("Log out")).click();
 	
 	}
 	
-	@Test
+	@Test(priority=8)
 	public void emptyCartTest() throws InterruptedException
 	{
 		// open login page locally and login
@@ -147,23 +153,30 @@ public class BuyerTests {
 		// login to account
 		driver.findElement(By.cssSelector("input[value='Login']")).click();
 		Thread.sleep(1000);
+		
 		// select Search on buyer main page to get to list of dishes
 		driver.findElement(By.linkText("Search")).click();
 		// get the list of all the "Add To Cart" buttons on the page
 		List<WebElement> addToCartButtons = driver.findElements(By.className("cart_button"));
 		// select the first "Add to Cart" button which is the $4.00 Greek Salad
 		addToCartButtons.get(0).click();
-		
+		driver.switchTo().alert().accept();
+	
 		//navigate to cart
 		driver.get("http://localhost/cookingwithlove/buyer/cart.php");
 		// delete any orders to ensure cart is empty
-		driver.findElement(By.className("cart_qty")).sendKeys("0");
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='cartform']/p]")).getText(), "There are no items in your cart.");
+		driver.findElement(By.xpath("//input[@name='newqty[64]']")).clear();
+		driver.findElement(By.xpath("//input[@name='newqty[64]']")).sendKeys("0");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@name='updateCart']")).click();
+		WebElement emptyCartElement = driver.findElement(By.xpath("//p"));
+		String emptyCartMessage = emptyCartElement.getText();
+		Assert.assertEquals(emptyCartMessage, "There are no items in your cart.");
 		Thread.sleep(10000);
 		driver.findElement(By.linkText("Log out")).click();
 	}
 	
-	@Test
+	@Test(priority=3)
 	public void checkoutTest() throws InterruptedException
 	{
 		// open login page locally
@@ -181,36 +194,31 @@ public class BuyerTests {
 		List<WebElement> addToCartButtons = driver.findElements(By.className("cart_button"));
 		// select the first "Add to Cart" button which is the $4.00 Greek Salad
 		addToCartButtons.get(0).click();
+		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
 		
 		//navigate to cart
 		driver.get("http://localhost/cookingwithlove/buyer/cart.php");
 		driver.findElement(By.cssSelector("input[value='Checkout']")).click();
 		Assert.assertEquals(driver.switchTo().alert().getText(), "Order has been added successfully.");
+		driver.switchTo().alert().accept();
 		Thread.sleep(4000);
 		driver.findElement(By.linkText("Log out")).click();
 	}
 	
-	@Test
+	@Test(priority=7)
 	public void emptyCurrentOrdersTest() throws InterruptedException, SQLException
 	{
 		// empty all orders for my user
 		String host = "localhost";
         String port = "3306";
-        int acctId = 0;
+        int acctId = 7;
         // connect to database
         Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
         Statement s = con.createStatement();
-        
-        // get account id for username CoachEpp
-        ResultSet acctIdsFromTable = s.executeQuery("SELECT accountID FROM user_account WHERE userName = 'CoachEpp'");
 
-     // Check if insertion was successful
-        while (acctIdsFromTable.next()) {
-            acctId = acctIdsFromTable.getInt("accountID");      
-        }
-        
         // Execute the DELETE statement
-        s.executeUpdate("DELETE FROM orders WHERE accountId = '" + acctId +"'");
+        s.executeUpdate("DELETE FROM orders WHERE accountId = '" + acctId + "'");
 		
 		// open login page locally
 		driver.get("http://localhost/cookingwithlove/login.php");
@@ -219,16 +227,18 @@ public class BuyerTests {
 		driver.findElement(By.id("password")).sendKeys("P@$$w0rd");
 		Thread.sleep(1000);
 		// login to account
-		driver.findElement(By.cssSelector("input[value='Login']")).click();		
-		//navigate to cart
-		driver.get("http://localhost/cookingwithlove/buyer/cart.php");
-		driver.findElement(By.cssSelector("input[value='Checkout']")).click();
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='order-container']/p]")).getText(), "No Orders found.");
+		driver.findElement(By.cssSelector("input[value='Login']")).click();
+		
+		//navigate to current orders
+		driver.findElement(By.linkText("Current Orders")).click();	
+		WebElement emptyOrderElement = driver.findElement(By.xpath("//p"));
+		String emptyOrderMessage = emptyOrderElement.getText();
+		Assert.assertEquals(emptyOrderMessage, "No Orders found.");
 		Thread.sleep(4000);
 		driver.findElement(By.linkText("Log out")).click();
 	}
 	
-	@Test
+	@Test(priority=4)
 	public void currentOrdersTest() throws InterruptedException
 	{
 		// open login page locally
@@ -246,16 +256,22 @@ public class BuyerTests {
 		List<WebElement> addToCartButtons = driver.findElements(By.className("cart_button"));
 		// select the first "Add to Cart" button which is the $4.00 Greek Salad
 		addToCartButtons.get(0).click();		
+		driver.switchTo().alert().accept();
+		
+		//Checkout order to add to orders
+		driver.findElement(By.xpath("//input[@name='checkout']")).click();
+		//seems to be an issue with the checkout functionality - it is popping up an alert here 
+		driver.switchTo().alert().accept();
+		
 		//navigate to cart
 		driver.findElement(By.linkText("Home")).click();
-		//Checkout order to add to orders
-		driver.findElement(By.cssSelector("input[value='Checkout']")).click();
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='order-container']/p]")).getText(), "No Orders found.");
+		driver.findElement(By.linkText("View Cart")).click();
+		Assert.assertEquals(driver.findElement(By.cssSelector("p:nth-child(2)")).getText(), "There are no items in your cart.");
 		Thread.sleep(4000);
 		driver.findElement(By.linkText("Log out")).click();
 	}
 	
-	@Test
+	@Test(priority=5)
 	public void previousOrdersTest() throws InterruptedException
 	{
 		// open login page locally
@@ -267,24 +283,16 @@ public class BuyerTests {
 		// login to account
 		driver.findElement(By.cssSelector("input[value='Login']")).click();
 		Thread.sleep(1000);
-		// select Home to reach buyer main page
-		driver.findElement(By.linkText("Home")).click();
-		// select Home to reach buyer main page
-		driver.findElement(By.className("Home")).click();
-		// get the list of all the "Add To Cart" buttons on the page
-		List<WebElement> addToCartButtons = driver.findElements(By.className("cart_button"));
-		// select the first "Add to Cart" button which is the $4.00 Greek Salad
-		addToCartButtons.get(0).click();		
-		//navigate to cart
-		driver.findElement(By.linkText("Home")).click();
-		//Checkout order to add to orders
-		driver.findElement(By.cssSelector("button pre_order")).click();
-		Assert.assertEquals(driver.findElement(By.tagName("h2")).getText(), "Previous Orders");
+		// select Previous Orders on buyer main page to get to list of previous orders
+		driver.findElement(By.linkText("Previous Orders")).click();
+		WebElement previousOrderElement = driver.findElement(By.xpath("//td/a"));
+		String previousOrderMessage = previousOrderElement.getText();
+		Assert.assertEquals(previousOrderMessage, "102");
 		Thread.sleep(4000);
 		driver.findElement(By.linkText("Log out")).click();
 	}
 	
-	@Test
+	@Test(priority=6)
 	public void cancelledOrdersTest() throws InterruptedException
 	{
 		// open login page locally
@@ -299,7 +307,7 @@ public class BuyerTests {
 		// select Home to reach buyer main page
 		driver.findElement(By.linkText("Home")).click();
 		// Select cancelled orders button
-		driver.findElement(By.cssSelector("button seller_cancel_order")).click();
+		driver.findElement(By.cssSelector(".seller_cancel_order")).click();
 		Assert.assertEquals(driver.findElement(By.tagName("h2")).getText(), "Cancelled Orders");
 		Thread.sleep(4000);
 		driver.findElement(By.linkText("Log out")).click();
