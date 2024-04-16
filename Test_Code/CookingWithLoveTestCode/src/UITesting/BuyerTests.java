@@ -53,7 +53,7 @@ public class BuyerTests {
         // Insert test data into dishes table
         // Execute the INSERT statement
         s.executeUpdate("INSERT INTO dishes (dishID, dishName, description, price, status, dishType, accountId, publishDate, photoPath, is_published, DishRequestedDate) " +
-                   "VALUES ('64', 'Greek Salad', '2 Tomatoes', '4.00', 'available', 'Salad', '3', '2023-12-04', 'Uploads/GreekSalad.jpeg', 'Y', '2023-12-01')");
+                   "VALUES ('64', 'Greek Salad', '2 Tomatoes', '4.00', 'available', 'Salad', '7', '2023-12-04', 'Uploads/GreekSalad.jpeg', 'Y', '2023-12-01')");
         
         // Insert test data into orders table
         // Execute the INSERT statement
@@ -71,14 +71,15 @@ public class BuyerTests {
         Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
         Statement s = con.createStatement();
         
-        // clear user_account table
-        s.executeUpdate("Delete FROM user_account");
+        // clear orders table
+        s.executeUpdate("Delete FROM orders");
         
-        // clear user_account table
+        // clear dishes table
         s.executeUpdate("Delete FROM dishes");
         
         // clear user_account table
-        s.executeUpdate("Delete FROM orders");
+        s.executeUpdate("Delete FROM user_account WHERE userName ");
+                
 		
 	}
 	
