@@ -11,7 +11,7 @@ public class AdminDatabaseSetup {
 	String port = "3306";
 	String database = "cooking_project";
 	String username = "root";
-	String password = "Maisa82**";
+	String password = "";
 
 	public void setupAdminData() throws SQLException {
 
