@@ -37,15 +37,15 @@ public class SellerDatabaseSetup {
 				// Insert multiple records into the dishes table
 				int rowsAffected17 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (655, 'Banana Bread', 'Banana Bread', '4.00', 'available', 'desserts', 3, '2023-12-04', 'Uploads/banana-bread.jpg', 'Y', '2023-12-01')");
+								+ "VALUES (655, 'Banana Bread', 'Banana Bread', '4.00', 'available', 'desserts', 3, '2023-12-04', 'UITesting.Uploads/banana-bread.jpg', 'Y', '2023-12-01')");
 				
 				int rowsAffected18 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (666, 'Chocolate Cupcake', 'Chocolate Cupcake', '4.00', 'available', 'desserts', 3, '2023-12-04', 'Uploads/chocolate-cupcake.jpg', 'Y', '2023-12-01')");
+								+ "VALUES (666, 'Chocolate Cupcake', 'Chocolate Cupcake', '4.00', 'available', 'desserts', 3, '2023-12-04', 'UITesting.Uploads/chocolate-cupcake.jpg', 'Y', '2023-12-01')");
 				
 				int rowsAffected19 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (677, 'Banana Chocolatechip Bread', 'Banana Chocolatechip Bread', '4.00', 'available', 'desserts', 3, '2023-12-04', 'Uploads/Banana-Bread_square.jpg', 'Y', '2023-12-01')");
+								+ "VALUES (677, 'Banana Chocolatechip Bread', 'Banana Chocolatechip Bread', '4.00', 'available', 'desserts', 3, '2023-12-04', 'UITesting.Uploads/Banana-Bread_square.jpg', 'Y', '2023-12-01')");
 				
 				// Insert into orderitems
 				int rowsAffected22 = s.executeUpdate("INSERT INTO orderitems (orderNum, DishID, DishName, quantity, price)" +
@@ -85,16 +85,15 @@ public class SellerDatabaseSetup {
 			    s.executeUpdate("SET FOREIGN_KEY_CHECKS=0");
 			    
 				// Delete multiple records from the user_account and dishes table
-				int rowsAffected6 = s.executeUpdate("DELETE FROM dishes WHERE dishID = '" + 655 + "'");
-				int rowsAffected7 = s.executeUpdate("DELETE FROM dishes WHERE dishID = '" + 666 + "'");
-				int rowsAffected8 = s.executeUpdate("DELETE FROM dishes WHERE dishID = '" + 677 + "'");
-
-
 				int rowsAffected10 = s.executeUpdate("DELETE FROM orders WHERE orderNum = '" + 9 + "'");
 				int rowsAffected11 = s.executeUpdate("DELETE FROM orderitems WHERE orderNum = '" + 9 + "' AND dishID = '" + 655 + "'" );
 				
 				int rowsAffected12 = s.executeUpdate("DELETE FROM orders WHERE orderNum = '" + 10 + "'");
 				int rowsAffected13 = s.executeUpdate("DELETE FROM orderitems WHERE orderNum = '" + 10 + "' AND dishID = '" + 666 + "'" );
+			    
+				int rowsAffected6 = s.executeUpdate("DELETE FROM dishes WHERE dishID = '" + 655 + "'");
+				int rowsAffected7 = s.executeUpdate("DELETE FROM dishes WHERE dishID = '" + 666 + "'");
+				int rowsAffected8 = s.executeUpdate("DELETE FROM dishes WHERE dishID = '" + 677 + "'");
 
 				int rowsAffected1 = s.executeUpdate("DELETE FROM user_account WHERE accountID = '" + 200 + "'");
 				int rowsAffected3 = s.executeUpdate("DELETE FROM user_account WHERE accountID = '" + 3 + "'");
