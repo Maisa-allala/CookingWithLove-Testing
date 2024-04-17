@@ -71,6 +71,9 @@ public class BuyerTests {
         Statement s = con.createStatement();
         
         // clear orders table
+        s.executeUpdate("Delete FROM orderitems");
+        
+        // clear orders table
         s.executeUpdate("Delete FROM orders");
         
         // clear dishes table
