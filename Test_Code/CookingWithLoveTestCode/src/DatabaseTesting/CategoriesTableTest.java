@@ -1,3 +1,4 @@
+package DatabaseTesting;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class CategoriesTableTest {
 
-	    @Test
+	    @Test(priority=1)
 	    public void testInsertion() throws SQLException {
 	        String host = "localhost";
 	        String port = "3306";
@@ -25,7 +26,7 @@ public class CategoriesTableTest {
 	            
 	    }
 	    
-	    @Test
+	    @Test(priority=2)
 	    public void testUpdateOperation() throws SQLException {
 	        String host = "localhost";
 	        String port = "3306";
@@ -40,7 +41,7 @@ public class CategoriesTableTest {
 	      
 	    }
 	    
-	    @Test
+	    @Test(priority=3)
 	    public void testRetrieveOperation() throws SQLException {
 	        String host = "localhost";
 	        String port = "3306";
@@ -59,11 +60,11 @@ public class CategoriesTableTest {
 	        }
      	}
 	    
-	    @Test
+	    @Test(priority=4)
 	    public void testDeleteOperation() throws SQLException {
 	        String host = "localhost";
 	        String port = "3306";
-	        String descriptionToDelete = "Fruits"; // The username of the record to be deleted
+	        String descriptionToDelete = "Fruits"; // The description of the record to be deleted
 	        Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/cooking_project", "root", "");
 	        Statement s = con.createStatement();
 
