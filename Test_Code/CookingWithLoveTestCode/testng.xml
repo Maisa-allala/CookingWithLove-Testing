@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="DatabaseTesting.user_accountTableInsertDataTest"/>
+      <class name="DatabaseTesting.user_accountTableUpdateDataTest" /><class name="DatabaseTesting.user_accountTableRetrieveDataTest" /><class name="DatabaseTesting.user_accountTableDeleteDataTest" /><class name="DatabaseTesting.ordersTests"/>
+      
+      
+      <class name="DatabaseTesting.CategoriesTableTest"/>
+      <class name="DatabaseTesting.dishes_TableTest" /><class name="UITesting.SellerTest" /><class name="UITesting.AdminTests"/>
+      
+      
+      
+      <class name="UITesting.BuyerTests"/>
+      <class name="UITesting.UserTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- TestSuite -->
