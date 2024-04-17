@@ -1,6 +1,9 @@
 package UITesting;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -59,7 +62,7 @@ public class AdminTests {
 
 	@Test
 	public void userRegistrationTest() throws InterruptedException {
-		driver.get("http://localhost:8080/CookingWithLove/");
+		driver.get("http://localhost/CookingWithLove/");
 		driver.findElement(By.linkText("Log in")).click();
 		driver.findElement(By.linkText("Create Account")).click();
 		driver.findElement(By.id("first_name")).sendKeys("Ali");
@@ -82,7 +85,7 @@ public class AdminTests {
 
 	@Test
 	public void forgotPasswordTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.linkText("Forgot Password ?")).click();
 		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("seller1");
 		driver.findElement(By.id("new_Password")).sendKeys("Test**12345");
@@ -97,7 +100,7 @@ public class AdminTests {
 
 	@Test
 	public void userLoginTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("buyer1");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(2000);
@@ -113,7 +116,7 @@ public class AdminTests {
 
 	@Test
 	public void adminViewUnApprovedDishesTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(2000);
@@ -128,7 +131,7 @@ public class AdminTests {
 
 	@Test
 	public void adminViewInactiveUsersTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(2000);
@@ -142,8 +145,8 @@ public class AdminTests {
 	}
 
 	@Test
-	public void adminViewDataforUnApprovedDishesTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+	public void adminViewDataforUnApprovedDishesTest() throws InterruptedException, SQLException {
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(1000);
@@ -159,8 +162,8 @@ public class AdminTests {
 	}
 
 	@Test
-	public void adminViewDataforInactiveUserTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+	public void adminViewDataforInactiveUserTest() throws InterruptedException, SQLException {
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(1000);
@@ -174,10 +177,10 @@ public class AdminTests {
 		Thread.sleep(4000);
 		driver.findElement(By.linkText("Log out")).click();
 	}
-
+	
 	@Test
-	public void adminViewDataforApprovedDishesTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+	public void adminViewDataforApprovedDishesTest() throws InterruptedException, SQLException {
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(1000);
@@ -194,7 +197,7 @@ public class AdminTests {
 
 	@Test
 	public void adminViewDataforActiveUserTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(1000);
@@ -211,7 +214,7 @@ public class AdminTests {
 
 	@Test
 	public void adminViewApprovedDishesTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(2000);
@@ -225,7 +228,7 @@ public class AdminTests {
 
 	@Test
 	public void adminViewActiveUsersTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(2000);
@@ -239,7 +242,7 @@ public class AdminTests {
 
 	@Test
 	public void adminApproveUserTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(2000);
@@ -258,8 +261,8 @@ public class AdminTests {
 	}
 
 	@Test
-	public void adminApproveDishTest() throws InterruptedException {
-		driver.get("http://localhost:8080/cookingwithlove/login.php");
+	public void adminApproveDishTest() throws InterruptedException, SQLException {
+		driver.get("http://localhost/cookingwithlove/login.php");
 		driver.findElement(By.id("username")).sendKeys("admin");
 		driver.findElement(By.id("password")).sendKeys("Test**12345");
 		Thread.sleep(1000);
