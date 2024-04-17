@@ -49,31 +49,31 @@ public class AdminDatabaseSetup {
 
 				int rowsAffected7 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (65, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
+								+ "VALUES (65, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'src/Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
 				int rowsAffected8 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (66, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
+								+ "VALUES (66, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'src/Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
 				int rowsAffected9 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (67, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
+								+ "VALUES (67, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'src/Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
 				int rowsAffected10 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (68, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
+								+ "VALUES (68, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'src/Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
 				int rowsAffected11 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (69, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
+								+ "VALUES (69, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'src/Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
 				int rowsAffected12 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (70, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
+								+ "VALUES (70, 'Greek Salad', '2 tomatoes', '3.00', 'available', 'Salad', 3, '2023-12-04', 'src/Uploads/Greek Salad.jpeg', 'Y', '2023-12-01')");
 				int rowsAffected13 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (71, 'Strawberry Dream Cake', '1 package white cake mix, 4 large eggs, 1 ½ cups frozen sweetened strawberries, 8 ounces cream cheese', '20.00', 'available', 'cake', 3, '2023-03-23', 'Uploads/StrawberryDreamCake.JPG', 'N', '2024-03-05')");
+								+ "VALUES (71, 'Strawberry Dream Cake', '1 package white cake mix, 4 large eggs, 1 ½ cups frozen sweetened strawberries, 8 ounces cream cheese', '20.00', 'available', 'cake', 3, '2023-03-23', 'src/Uploads/StrawberryDreamCake.JPG', 'N', '2024-03-05')");
 				int rowsAffected14 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (72, 'Strawberry Dream Cake', '1 package white cake mix, 4 large eggs, 1 ½ cups frozen sweetened strawberries, 8 ounces cream cheese', '20.00', 'available', 'cake', 3, null, 'Uploads/StrawberryDreamCake.JPG', 'N', '2024-03-05')");
+								+ "VALUES (72, 'Strawberry Dream Cake', '1 package white cake mix, 4 large eggs, 1 ½ cups frozen sweetened strawberries, 8 ounces cream cheese', '20.00', 'available', 'cake', 3, null, 'src/Uploads/StrawberryDreamCake.JPG', 'N', '2024-03-05')");
 				int rowsAffected15 = s.executeUpdate(
 						"INSERT INTO dishes(dishID, dishName, description, price, status, dishType, accountID, publishDate, photoPath, is_published, DishRequestedDate) "
-								+ "VALUES (73, 'Strawberry Dream Cake', '1 package white cake mix, 4 large eggs, 1 ½ cups frozen sweetened strawberries, 8 ounces cream cheese', '20.00', 'available', 'cake', 3, null, 'Uploads/StrawberryDreamCake.JPG', 'N', '2024-03-10')");
+								+ "VALUES (73, 'Strawberry Dream Cake', '1 package white cake mix, 4 large eggs, 1 ½ cups frozen sweetened strawberries, 8 ounces cream cheese', '20.00', 'available', 'cake', 3, null, 'src/Uploads/StrawberryDreamCake.JPG', 'N', '2024-03-10')");
 
 				// Check if insertion was successful for both records
 //           
