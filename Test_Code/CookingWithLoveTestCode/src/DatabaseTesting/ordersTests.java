@@ -50,7 +50,7 @@ public class ordersTests {
         // Insert test data into dishes table
         // Execute the INSERT statement
         s.executeUpdate("INSERT INTO dishes (dishID, dishName, description, price, status, dishType, accountId, publishDate, photoPath, is_published, DishRequestedDate) " +
-                   "VALUES ('64', 'Greek Salad', '2 Tomatoes', '4.00', 'available', 'Salad', '3', '2023-12-04', 'Uploads/GreekSalad.jpeg', 'Y', '2023-12-01')");
+                   "VALUES ('64', 'Greek Salad', '2 Tomatoes', '4.00', 'available', 'Salad', '7', '2023-12-04', 'Uploads/GreekSalad.jpeg', 'Y', '2023-12-01')");
         
         // Insert test data into orders table
         // Execute the INSERT statement
@@ -69,13 +69,13 @@ public class ordersTests {
         Statement s = con.createStatement();
         
         // clear user_account table
-        s.executeUpdate("Delete FROM user_account");
-        
+        s.executeUpdate("Delete FROM orders");
+                
         // clear user_account table
         s.executeUpdate("Delete FROM dishes");
         
         // clear user_account table
-        s.executeUpdate("Delete FROM orders");
+        s.executeUpdate("Delete FROM user_account");
 		
 	}
     @Test
@@ -133,7 +133,7 @@ public class ordersTests {
              
 	     // Execute the INSERT statement to verify there is data in the table
 	     s.executeUpdate("INSERT INTO orders (orderNum, date, deliveryType, totalPrice, cancelled, accountID, delivery_complete, order_complete) " +
-                        "VALUES ('102', '2024-01-06', 'PickUp', '24.00', 'N', '7', 'N', 'N')");
+                        "VALUES ('107', '2024-01-06', 'PickUp', '24.00', 'N', '7', 'N', 'N')");
 	     
         // Execute the UPDATE statement
         s.executeUpdate("UPDATE orders SET delivery_complete = 'Y' WHERE orderNum = '102'");
